@@ -42,14 +42,17 @@ async function main()
     console.log("\nEntrada válida.");
 
     //Tabla de lexemas y Tokens
+    inputStream = CharStreams.fromString(input);
+    lexer = new CondicionalLexer(inputStream);
     MostrarTabla(lexer);
 
     //Arbol de analisis sintactico
-    console.log("\nÁrbol sintáctico: \n");
+    console.log("\nÁrbol sintáctico:");
     let arbol = tree.toStringTree(parser.ruleNames, parser);
     console.log(arbol);
 
     //Interpretación a JS
+    
 }
 
 function MostrarErrores(errorListener) 
