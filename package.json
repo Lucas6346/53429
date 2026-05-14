@@ -12,5 +12,13 @@
   "type": "module",
   "dependencies": {
     "antlr4": "^4.13.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucas6346/53429.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lucas6346/53429/issues"
+  },
+  "homepage": "https://github.com/Lucas6346/53429#readme"
 }
