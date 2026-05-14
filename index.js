@@ -1,3 +1,9 @@
+import antlr4, { CharStreams, CommonTokenStream, ParseTreeWalker } from "antlr4";
+
+import readline from 'readline';
+import fs from 'fs';
+import { error } from "console";
+
 async function main() 
 {
     let input;
