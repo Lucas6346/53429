@@ -202,14 +202,14 @@ export default class CondicionalParser extends antlr4.Parser {
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case 8:
-	            localctx = new CondIsStateContext(this, localctx);
+	            localctx = new EstCondicionIsContext(this, localctx);
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 46;
-	            this.match(CondicionalParser.ES);
+	            localctx.val = this.match(CondicionalParser.ES);
 	            break;
 	        case 9:
 	        case 10:
-	            localctx = new CondValueContext(this, localctx);
+	            localctx = new EstCondicionValueContext(this, localctx);
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 47;
 	            localctx.val = this._input.LT(1);
@@ -253,13 +253,13 @@ export default class CondicionalParser extends antlr4.Parser {
 	            localctx = new ValCondicionEstadoContext(this, localctx);
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 50;
-	            this.estado();
+	            localctx.val = this.estado();
 	            break;
 	        case 14:
 	            localctx = new ValCondicionIntContext(this, localctx);
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 51;
-	            this.match(CondicionalParser.ENTERO);
+	            localctx.val = this.match(CondicionalParser.ENTERO);
 	            break;
 	        default:
 	            throw new antlr4.error.NoViableAltException(this);
@@ -738,10 +738,11 @@ class Estado_condicionContext extends antlr4.ParserRuleContext {
 }
 
 
-class CondIsStateContext extends Estado_condicionContext {
+class EstCondicionIsContext extends Estado_condicionContext {
 
     constructor(parser, ctx) {
         super(parser);
+        this.val = null;;
         super.copyFrom(ctx);
     }
 
@@ -751,19 +752,19 @@ class CondIsStateContext extends Estado_condicionContext {
 
 	enterRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.enterCondIsState(this);
+	        listener.enterEstCondicionIs(this);
 		}
 	}
 
 	exitRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.exitCondIsState(this);
+	        listener.exitEstCondicionIs(this);
 		}
 	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
-	        return visitor.visitCondIsState(this);
+	        return visitor.visitEstCondicionIs(this);
 	    } else {
 	        return visitor.visitChildren(this);
 	    }
@@ -772,9 +773,9 @@ class CondIsStateContext extends Estado_condicionContext {
 
 }
 
-CondicionalParser.CondIsStateContext = CondIsStateContext;
+CondicionalParser.EstCondicionIsContext = EstCondicionIsContext;
 
-class CondValueContext extends Estado_condicionContext {
+class EstCondicionValueContext extends Estado_condicionContext {
 
     constructor(parser, ctx) {
         super(parser);
@@ -792,19 +793,19 @@ class CondValueContext extends Estado_condicionContext {
 
 	enterRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.enterCondValue(this);
+	        listener.enterEstCondicionValue(this);
 		}
 	}
 
 	exitRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.exitCondValue(this);
+	        listener.exitEstCondicionValue(this);
 		}
 	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
-	        return visitor.visitCondValue(this);
+	        return visitor.visitEstCondicionValue(this);
 	    } else {
 	        return visitor.visitChildren(this);
 	    }
@@ -813,7 +814,7 @@ class CondValueContext extends Estado_condicionContext {
 
 }
 
-CondicionalParser.CondValueContext = CondValueContext;
+CondicionalParser.EstCondicionValueContext = EstCondicionValueContext;
 
 class Valor_condicionContext extends antlr4.ParserRuleContext {
 
@@ -842,6 +843,7 @@ class ValCondicionIntContext extends Valor_condicionContext {
 
     constructor(parser, ctx) {
         super(parser);
+        this.val = null;;
         super.copyFrom(ctx);
     }
 
@@ -878,6 +880,7 @@ class ValCondicionEstadoContext extends Valor_condicionContext {
 
     constructor(parser, ctx) {
         super(parser);
+        this.val = null;;
         super.copyFrom(ctx);
     }
 

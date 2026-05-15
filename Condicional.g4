@@ -12,13 +12,13 @@ accion: accion_simple;
 nombre_dispositivo: ID;
 
 estado_condicion
-    : ES                #condIsState
-    | val = (MAY|MEN)   #condValue
+    : val = ES          #estCondicionIs
+    | val = (MAY|MEN)   #estCondicionValue
     ;
 
 valor_condicion
-    : estado            #valCondicionEstado
-    | ENTERO            #valCondicionInt
+    : val = estado      #valCondicionEstado
+    | val = ENTERO      #valCondicionInt
     ;
 
 estado

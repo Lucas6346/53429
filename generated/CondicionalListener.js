@@ -50,21 +50,21 @@ export default class CondicionalListener extends antlr4.tree.ParseTreeListener {
 	}
 
 
-	// Enter a parse tree produced by CondicionalParser#condIsState.
-	enterCondIsState(ctx) {
+	// Enter a parse tree produced by CondicionalParser#estCondicionIs.
+	enterEstCondicionIs(ctx) {
 	}
 
-	// Exit a parse tree produced by CondicionalParser#condIsState.
-	exitCondIsState(ctx) {
+	// Exit a parse tree produced by CondicionalParser#estCondicionIs.
+	exitEstCondicionIs(ctx) {
 	}
 
 
-	// Enter a parse tree produced by CondicionalParser#condValue.
-	enterCondValue(ctx) {
+	// Enter a parse tree produced by CondicionalParser#estCondicionValue.
+	enterEstCondicionValue(ctx) {
 	}
 
-	// Exit a parse tree produced by CondicionalParser#condValue.
-	exitCondValue(ctx) {
+	// Exit a parse tree produced by CondicionalParser#estCondicionValue.
+	exitEstCondicionValue(ctx) {
 	}
 
 

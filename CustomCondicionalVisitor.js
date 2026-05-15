@@ -12,69 +12,150 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
 
     visitRegla(ctx)
     {
-        const stringFunc = this.visit(ctx.accion());
-        const objCondicion = this.visit(ctx.condicion());
+        const objCondicion = ctx.condicion();
+        const objAccion = ctx.accion();
 
-        const line1 = `const ${objCondicion.disp} = { ${stringFunc } };`;
-        const line2;
+        //const line1 = `const ${nomDisp1} = { ${objCondicion.propiedad}, function(): { this.${objCondicion.propiedad} = ${objAccion.funcion} };`;
+        const line1 = `const ${objCondicion.nomDispositivo} = { ${objCondicion.propiedad}, ${objAccion.funcionNom}: function() = { this.${objCondicion.propiedadIzq} = ${objAccion.funcionSet} };`;
+
+        let op;
+        let negate = "";
+        if(objCondicion.valCondicion.izq === "valor")
+        {
+            switch(objCondicion.estCondicion.comparacion)
+            {
+                case null:
+                    op = " === ";
+                    break;
+                case 1:
+                    op = " > ";
+                    break;
+                case -1:
+                    op = " < ";
+                    break;
+            }
+
+            if(objCondicion.valCondicion.der === "true")
+                negate = "!";
+        }
+
+        const line2 = `if (${objCondicion.nomDispositivo}${op}${negate}${objCondicion.valCondicion.izq}) ${objCondicion.nomDispositivo}.${objAccion.funcionNom}();`;
+
+        console.log("\nTraducción a JavaScript:")
+        console.log(line1 + "\n" + line2);
+        console.log("");
     }
 
-    visitCondicion(ctx)
+    visitCondicion(ctx) 
     {
-        const disp = this.visit(ctx.nombre_dispositivo());
+        const nomDispositivo = this.visit(ctx.nombre_dispositivo().getText());
         const estCondicion = this.visit(ctx.estado_condicion());
         const valCondicion = this.visit(ctx.valor_condicion());
-        
+        let derFinal;
+
+        if(estCondicion.comparacion === null)
+        {
+            derFinal = valCondicion.der;
+        }
+        else
+        {
+            derFinal = valCondicion.der + estCondicion.comparacion;
+        }
+
+        const propiedad = `${valCondicion.izq}: ${derFinal}`;
+        const propiedadIzq = valCondicion.izq;
+
         return ({
-            disp,
+            propiedadIzq,
+            propiedad,
+            nomDispositivo,
             estCondicion,
             valCondicion
         });
     }
-    visitCondIsState(ctx)
+    visitEstado_Condicion(ctx)
     {
-        return "encendido: ";
-    }
-    visitCondValue(ctx)
-    {
-        const val = ctx.val().getText();
-        const simboloIf;
-        const nombrePropiedad = "valor: ";
+        let comparacion;
 
-        if (val === "mayor que")
+        if(ctx.val === ctx.ES()) 
         {
-            simboloIf = ">";
+            comparacion = null;
         }
-        else if (val === "menor que") 
+        else if(ctx.val === ctx.MAY())
         {
-            simboloIf = "<";
+            comparacion = 1;
+        }
+        else
+        {
+            comparacion = -1;
+        }
+
+        return comparacion;
+    }
+    visitValor_Condicion(ctx)
+    {
+        let izq;
+        let der;
+        
+        if(ctx.val === ctx.ENTERO())
+        {
+            izq = "valor";
+            der = Number(ctx.ENTERO().getText());
+        }
+        else
+        {
+            izq = "encendido";
+
+            if(ctx.val === this.visit(ctx.estado().ENC()))
+            {
+                der = "true";
+            }
+            else
+            {
+                der = "false";
+            }
         }
 
         return ({
-            nombrePropiedad,
-            simboloIf
+            izq,
+            der
         });
     }
-
-    visitAccion(ctx) 
+    
+    visitAccion(ctx)
     {
         return this.visit(ctx.accion_simple());
     }
     visitActivate(ctx)
     {
-        const nombreDisp = ctx.activar().nombre_dispositivo().getText();
-        return `activar: function() { this.${nombreDisp} = true; }`;
+        const funcionNom = "activar";
+        const funcionSet = "true";
+
+        return ({
+            funcionNom,
+            funcionSet
+        });
     }
     visitDeactivate(ctx)
     {
-        const nombreDisp = ctx.desactivar().nombre_dispositivo().getText();
-        return `desactivar: function() { this.${nombreDisp} = false; }`;
+        const funcionNom = "desactivar";
+        const funcionSet = "false";
+
+        return ({
+            funcionNom,
+            funcionSet
+        });
     }
     visitAdjust(ctx)
     {
-        const nombreDisp = ctx.ajustar().nombre_dispositivo().getText();
         const valObjetivo = ctx.ajustar().ENTERO().getText();
 
-        return `ajustar: function() { this.${nombreDisp} = ${valObjetivo}; }`;
+        const funcionNom = "ajustar";
+        const funcionSet = valObjetivo;
+
+        return ({
+            funcionNom,
+            funcionSet
+        });
     }
 }
