@@ -12,14 +12,13 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
 
     visitRegla(ctx)
     {
-        const objCondicion = ctx.condicion();
-        const objAccion = ctx.accion();
+        const objCondicion = this.visit(ctx.condicion());
+        const objAccion = this.visit(ctx.accion());
+        let valorFuncion = objCondicion.propiedadIzq;
 
-        //const line1 = `const ${nomDisp1} = { ${objCondicion.propiedad}, function(): { this.${objCondicion.propiedad} = ${objAccion.funcion} };`;
-        const line1 = `const ${objCondicion.nomDispositivo} = { ${objCondicion.propiedad}, ${objAccion.funcionNom}: function() = { this.${objCondicion.propiedadIzq} = ${objAccion.funcionSet} };`;
-
-        let op;
+        let op = ".";
         let negate = "";
+        
         if(objCondicion.valCondicion.izq === "valor")
         {
             switch(objCondicion.estCondicion.comparacion)
@@ -37,8 +36,11 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
 
             if(objCondicion.valCondicion.der === "true")
                 negate = "!";
+
+            valorFuncion = "valor";
         }
 
+        const line1 = `const ${objCondicion.nomDispositivo} = { ${objCondicion.propiedad}, ${objAccion.funcionNom}: function() { this.${objCondicion.propiedadIzq} = ${objAccion.funcionSet} } };`;
         const line2 = `if (${objCondicion.nomDispositivo}${op}${negate}${objCondicion.valCondicion.izq}) ${objCondicion.nomDispositivo}.${objAccion.funcionNom}();`;
 
         console.log("\nTraducción a JavaScript:")
@@ -48,7 +50,7 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
 
     visitCondicion(ctx) 
     {
-        const nomDispositivo = this.visit(ctx.nombre_dispositivo().getText());
+        const nomDispositivo = ctx.nombre_dispositivo().getText();
         const estCondicion = this.visit(ctx.estado_condicion());
         const valCondicion = this.visit(ctx.valor_condicion());
         let derFinal;
@@ -73,15 +75,15 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
             valCondicion
         });
     }
-    visitEstado_Condicion(ctx)
+    visitEstado_condicion(ctx)
     {
         let comparacion;
 
-        if(ctx.val === ctx.ES()) 
+        if(ctx.val.type === CondicionalParser.ES) 
         {
             comparacion = null;
         }
-        else if(ctx.val === ctx.MAY())
+        else if(ctx.val.type === CondicionalParser.MAY)
         {
             comparacion = 1;
         }
@@ -92,12 +94,12 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
 
         return comparacion;
     }
-    visitValor_Condicion(ctx)
+    visitValor_condicion(ctx)
     {
         let izq;
         let der;
         
-        if(ctx.val === ctx.ENTERO())
+        if(ctx.val.type === CondicionalParser.ENTERO)
         {
             izq = "valor";
             der = Number(ctx.ENTERO().getText());
@@ -106,7 +108,7 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
         {
             izq = "encendido";
 
-            if(ctx.val === this.visit(ctx.estado().ENC()))
+            if(ctx.val.type === CondicionalParser.ENC)
             {
                 der = "true";
             }
