@@ -24,20 +24,36 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
         const disp = this.visit(ctx.nombre_dispositivo());
         const estCondicion = this.visit(ctx.estado_condicion());
         const valCondicion = this.visit(ctx.valor_condicion());
-
+        
         return ({
             disp,
             estCondicion,
             valCondicion
         });
     }
-    visitCondIs(ctx)
+    visitCondIsState(ctx)
     {
-
+        return "encendido: ";
     }
     visitCondValue(ctx)
     {
+        const val = ctx.val().getText();
+        const simboloIf;
+        const nombrePropiedad = "valor: ";
 
+        if (val === "mayor que")
+        {
+            simboloIf = ">";
+        }
+        else if (val === "menor que") 
+        {
+            simboloIf = "<";
+        }
+
+        return ({
+            nombrePropiedad,
+            simboloIf
+        });
     }
 
     visitAccion(ctx) 

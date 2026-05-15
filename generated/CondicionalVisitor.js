@@ -36,20 +36,14 @@ export default class CondicionalVisitor extends antlr4.tree.ParseTreeVisitor {
 	}
 
 
-	// Visit a parse tree produced by CondicionalParser#condIs.
-	visitCondIs(ctx) {
+	// Visit a parse tree produced by CondicionalParser#condIsState.
+	visitCondIsState(ctx) {
 	  return this.visitChildren(ctx);
 	}
 
 
-	// Visit a parse tree produced by CondicionalParser#condGreater.
-	visitCondGreater(ctx) {
-	  return this.visitChildren(ctx);
-	}
-
-
-	// Visit a parse tree produced by CondicionalParser#condLesser.
-	visitCondLesser(ctx) {
+	// Visit a parse tree produced by CondicionalParser#condValue.
+	visitCondValue(ctx) {
 	  return this.visitChildren(ctx);
 	}
 

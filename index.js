@@ -2,6 +2,7 @@ import antlr4, { CharStreams, CommonTokenStream, ParseTreeWalker } from "antlr4"
 
 import { CustomErrorListener } from "./CustomErrorListener.js"
 import { CustomCondicionalListener } from "./CustomCondicionalListener.js";
+import { CustomCondicionalVisitor } from "./CustomCondicionalVisitor.js";
 import CondicionalParser from "./generated/CondicionalParser.js";
 import CondicionalLexer from "./generated/CondicionalLexer.js";
 
@@ -52,7 +53,9 @@ async function main()
     console.log(arbol);
 
     //Interpretación a JS
-    
+    console.log("Traducción a JS")
+    const visitor = new CustomCondicionalVisitor();
+    visitor.visit(tree);
 }
 
 function MostrarErrores(errorListener) 

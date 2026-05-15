@@ -4,25 +4,25 @@ import antlr4 from 'antlr4';
 import CondicionalListener from './CondicionalListener.js';
 import CondicionalVisitor from './CondicionalVisitor.js';
 
-const serializedATN = [4,1,15,74,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
+const serializedATN = [4,1,15,73,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
 2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,1,0,5,0,26,8,
 0,10,0,12,0,29,9,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,2,1,2,1,3,1,
-3,1,4,1,4,1,5,1,5,1,5,3,5,50,8,5,1,6,1,6,3,6,54,8,6,1,7,1,7,1,8,1,8,1,8,
-3,8,61,8,8,1,9,1,9,1,9,1,10,1,10,1,10,1,11,1,11,1,11,1,11,1,11,1,11,0,0,
-12,0,2,4,6,8,10,12,14,16,18,20,22,0,1,1,0,11,12,67,0,27,1,0,0,0,2,32,1,0,
-0,0,4,38,1,0,0,0,6,42,1,0,0,0,8,44,1,0,0,0,10,49,1,0,0,0,12,53,1,0,0,0,14,
-55,1,0,0,0,16,60,1,0,0,0,18,62,1,0,0,0,20,65,1,0,0,0,22,68,1,0,0,0,24,26,
-3,2,1,0,25,24,1,0,0,0,26,29,1,0,0,0,27,25,1,0,0,0,27,28,1,0,0,0,28,30,1,
-0,0,0,29,27,1,0,0,0,30,31,5,0,0,1,31,1,1,0,0,0,32,33,5,1,0,0,33,34,3,4,2,
-0,34,35,5,2,0,0,35,36,3,6,3,0,36,37,5,4,0,0,37,3,1,0,0,0,38,39,3,8,4,0,39,
-40,3,10,5,0,40,41,3,12,6,0,41,5,1,0,0,0,42,43,3,16,8,0,43,7,1,0,0,0,44,45,
-5,13,0,0,45,9,1,0,0,0,46,50,5,8,0,0,47,50,5,9,0,0,48,50,5,10,0,0,49,46,1,
-0,0,0,49,47,1,0,0,0,49,48,1,0,0,0,50,11,1,0,0,0,51,54,3,14,7,0,52,54,5,14,
-0,0,53,51,1,0,0,0,53,52,1,0,0,0,54,13,1,0,0,0,55,56,7,0,0,0,56,15,1,0,0,
-0,57,61,3,18,9,0,58,61,3,20,10,0,59,61,3,22,11,0,60,57,1,0,0,0,60,58,1,0,
-0,0,60,59,1,0,0,0,61,17,1,0,0,0,62,63,5,5,0,0,63,64,3,8,4,0,64,19,1,0,0,
-0,65,66,5,6,0,0,66,67,3,8,4,0,67,21,1,0,0,0,68,69,5,7,0,0,69,70,3,8,4,0,
-70,71,5,3,0,0,71,72,5,14,0,0,72,23,1,0,0,0,4,27,49,53,60];
+3,1,4,1,4,1,5,1,5,3,5,49,8,5,1,6,1,6,3,6,53,8,6,1,7,1,7,1,8,1,8,1,8,3,8,
+60,8,8,1,9,1,9,1,9,1,10,1,10,1,10,1,11,1,11,1,11,1,11,1,11,1,11,0,0,12,0,
+2,4,6,8,10,12,14,16,18,20,22,0,2,1,0,9,10,1,0,11,12,65,0,27,1,0,0,0,2,32,
+1,0,0,0,4,38,1,0,0,0,6,42,1,0,0,0,8,44,1,0,0,0,10,48,1,0,0,0,12,52,1,0,0,
+0,14,54,1,0,0,0,16,59,1,0,0,0,18,61,1,0,0,0,20,64,1,0,0,0,22,67,1,0,0,0,
+24,26,3,2,1,0,25,24,1,0,0,0,26,29,1,0,0,0,27,25,1,0,0,0,27,28,1,0,0,0,28,
+30,1,0,0,0,29,27,1,0,0,0,30,31,5,0,0,1,31,1,1,0,0,0,32,33,5,1,0,0,33,34,
+3,4,2,0,34,35,5,2,0,0,35,36,3,6,3,0,36,37,5,4,0,0,37,3,1,0,0,0,38,39,3,8,
+4,0,39,40,3,10,5,0,40,41,3,12,6,0,41,5,1,0,0,0,42,43,3,16,8,0,43,7,1,0,0,
+0,44,45,5,13,0,0,45,9,1,0,0,0,46,49,5,8,0,0,47,49,7,0,0,0,48,46,1,0,0,0,
+48,47,1,0,0,0,49,11,1,0,0,0,50,53,3,14,7,0,51,53,5,14,0,0,52,50,1,0,0,0,
+52,51,1,0,0,0,53,13,1,0,0,0,54,55,7,1,0,0,55,15,1,0,0,0,56,60,3,18,9,0,57,
+60,3,20,10,0,58,60,3,22,11,0,59,56,1,0,0,0,59,57,1,0,0,0,59,58,1,0,0,0,60,
+17,1,0,0,0,61,62,5,5,0,0,62,63,3,8,4,0,63,19,1,0,0,0,64,65,5,6,0,0,65,66,
+3,8,4,0,66,21,1,0,0,0,67,68,5,7,0,0,68,69,3,8,4,0,69,70,5,3,0,0,70,71,5,
+14,0,0,71,23,1,0,0,0,4,27,48,52,59];
 
 
 const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -196,27 +196,31 @@ export default class CondicionalParser extends antlr4.Parser {
 	estado_condicion() {
 	    let localctx = new Estado_condicionContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 10, CondicionalParser.RULE_estado_condicion);
+	    var _la = 0;
 	    try {
-	        this.state = 49;
+	        this.state = 48;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case 8:
-	            localctx = new CondIsContext(this, localctx);
+	            localctx = new CondIsStateContext(this, localctx);
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 46;
 	            this.match(CondicionalParser.ES);
 	            break;
 	        case 9:
-	            localctx = new CondGreaterContext(this, localctx);
+	        case 10:
+	            localctx = new CondValueContext(this, localctx);
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 47;
-	            this.match(CondicionalParser.MAY);
-	            break;
-	        case 10:
-	            localctx = new CondLesserContext(this, localctx);
-	            this.enterOuterAlt(localctx, 3);
-	            this.state = 48;
-	            this.match(CondicionalParser.MEN);
+	            localctx.val = this._input.LT(1);
+	            _la = this._input.LA(1);
+	            if(!(_la===9 || _la===10)) {
+	                localctx.val = this._errHandler.recoverInline(this);
+	            }
+	            else {
+	            	this._errHandler.reportMatch(this);
+	                this.consume();
+	            }
 	            break;
 	        default:
 	            throw new antlr4.error.NoViableAltException(this);
@@ -241,20 +245,20 @@ export default class CondicionalParser extends antlr4.Parser {
 	    let localctx = new Valor_condicionContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 12, CondicionalParser.RULE_valor_condicion);
 	    try {
-	        this.state = 53;
+	        this.state = 52;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case 11:
 	        case 12:
 	            localctx = new ValCondicionEstadoContext(this, localctx);
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 51;
+	            this.state = 50;
 	            this.estado();
 	            break;
 	        case 14:
 	            localctx = new ValCondicionIntContext(this, localctx);
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 52;
+	            this.state = 51;
 	            this.match(CondicionalParser.ENTERO);
 	            break;
 	        default:
@@ -282,7 +286,7 @@ export default class CondicionalParser extends antlr4.Parser {
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 55;
+	        this.state = 54;
 	        _la = this._input.LA(1);
 	        if(!(_la===11 || _la===12)) {
 	        this._errHandler.recoverInline(this);
@@ -311,25 +315,25 @@ export default class CondicionalParser extends antlr4.Parser {
 	    let localctx = new Accion_simpleContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 16, CondicionalParser.RULE_accion_simple);
 	    try {
-	        this.state = 60;
+	        this.state = 59;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case 5:
 	            localctx = new ActivateContext(this, localctx);
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 57;
+	            this.state = 56;
 	            this.activar();
 	            break;
 	        case 6:
 	            localctx = new DeactivateContext(this, localctx);
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 58;
+	            this.state = 57;
 	            this.desactivar();
 	            break;
 	        case 7:
 	            localctx = new AdjustContext(this, localctx);
 	            this.enterOuterAlt(localctx, 3);
-	            this.state = 59;
+	            this.state = 58;
 	            this.ajustar();
 	            break;
 	        default:
@@ -356,9 +360,9 @@ export default class CondicionalParser extends antlr4.Parser {
 	    this.enterRule(localctx, 18, CondicionalParser.RULE_activar);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 62;
+	        this.state = 61;
 	        this.match(CondicionalParser.ACT);
-	        this.state = 63;
+	        this.state = 62;
 	        this.nombre_dispositivo();
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -381,9 +385,9 @@ export default class CondicionalParser extends antlr4.Parser {
 	    this.enterRule(localctx, 20, CondicionalParser.RULE_desactivar);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 65;
+	        this.state = 64;
 	        this.match(CondicionalParser.DES);
-	        this.state = 66;
+	        this.state = 65;
 	        this.nombre_dispositivo();
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -406,13 +410,13 @@ export default class CondicionalParser extends antlr4.Parser {
 	    this.enterRule(localctx, 22, CondicionalParser.RULE_ajustar);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 68;
+	        this.state = 67;
 	        this.match(CondicionalParser.AJU);
-	        this.state = 69;
+	        this.state = 68;
 	        this.nombre_dispositivo();
-	        this.state = 70;
+	        this.state = 69;
 	        this.match(CondicionalParser.A);
-	        this.state = 71;
+	        this.state = 70;
 	        this.match(CondicionalParser.ENTERO);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -734,43 +738,7 @@ class Estado_condicionContext extends antlr4.ParserRuleContext {
 }
 
 
-class CondLesserContext extends Estado_condicionContext {
-
-    constructor(parser, ctx) {
-        super(parser);
-        super.copyFrom(ctx);
-    }
-
-	MEN() {
-	    return this.getToken(CondicionalParser.MEN, 0);
-	};
-
-	enterRule(listener) {
-	    if(listener instanceof CondicionalListener ) {
-	        listener.enterCondLesser(this);
-		}
-	}
-
-	exitRule(listener) {
-	    if(listener instanceof CondicionalListener ) {
-	        listener.exitCondLesser(this);
-		}
-	}
-
-	accept(visitor) {
-	    if ( visitor instanceof CondicionalVisitor ) {
-	        return visitor.visitCondLesser(this);
-	    } else {
-	        return visitor.visitChildren(this);
-	    }
-	}
-
-
-}
-
-CondicionalParser.CondLesserContext = CondLesserContext;
-
-class CondIsContext extends Estado_condicionContext {
+class CondIsStateContext extends Estado_condicionContext {
 
     constructor(parser, ctx) {
         super(parser);
@@ -783,19 +751,19 @@ class CondIsContext extends Estado_condicionContext {
 
 	enterRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.enterCondIs(this);
+	        listener.enterCondIsState(this);
 		}
 	}
 
 	exitRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.exitCondIs(this);
+	        listener.exitCondIsState(this);
 		}
 	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
-	        return visitor.visitCondIs(this);
+	        return visitor.visitCondIsState(this);
 	    } else {
 	        return visitor.visitChildren(this);
 	    }
@@ -804,12 +772,13 @@ class CondIsContext extends Estado_condicionContext {
 
 }
 
-CondicionalParser.CondIsContext = CondIsContext;
+CondicionalParser.CondIsStateContext = CondIsStateContext;
 
-class CondGreaterContext extends Estado_condicionContext {
+class CondValueContext extends Estado_condicionContext {
 
     constructor(parser, ctx) {
         super(parser);
+        this.val = null;;
         super.copyFrom(ctx);
     }
 
@@ -817,21 +786,25 @@ class CondGreaterContext extends Estado_condicionContext {
 	    return this.getToken(CondicionalParser.MAY, 0);
 	};
 
+	MEN() {
+	    return this.getToken(CondicionalParser.MEN, 0);
+	};
+
 	enterRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.enterCondGreater(this);
+	        listener.enterCondValue(this);
 		}
 	}
 
 	exitRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.exitCondGreater(this);
+	        listener.exitCondValue(this);
 		}
 	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
-	        return visitor.visitCondGreater(this);
+	        return visitor.visitCondValue(this);
 	    } else {
 	        return visitor.visitChildren(this);
 	    }
@@ -840,7 +813,7 @@ class CondGreaterContext extends Estado_condicionContext {
 
 }
 
-CondicionalParser.CondGreaterContext = CondGreaterContext;
+CondicionalParser.CondValueContext = CondValueContext;
 
 class Valor_condicionContext extends antlr4.ParserRuleContext {
 

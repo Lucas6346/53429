@@ -12,14 +12,13 @@ accion: accion_simple;
 nombre_dispositivo: ID;
 
 estado_condicion
-    : ES            #condIs
-    | MAY           #condGreater
-    | MEN           #condLesser
+    : ES                #condIsState
+    | val = (MAY|MEN)   #condValue
     ;
 
 valor_condicion
-    : estado        #valCondicionEstado
-    | ENTERO        #valCondicionInt
+    : estado            #valCondicionEstado
+    | ENTERO            #valCondicionInt
     ;
 
 estado
@@ -28,9 +27,9 @@ estado
     ;
 
 accion_simple
-    : activar       #activate
-    | desactivar    #deactivate
-    | ajustar       #adjust
+    : activar           #activate
+    | desactivar        #deactivate
+    | ajustar           #adjust
     ;
 
 activar: ACT nombre_dispositivo;
