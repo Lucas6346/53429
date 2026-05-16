@@ -21,7 +21,7 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
         
         if(objCondicion.valCondicion.izq === "valor")
         {
-            switch(objCondicion.estCondicion.comparacion)
+            switch(objCondicion.estCondicion)
             {
                 case null:
                     op = " === ";
@@ -55,13 +55,13 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
         const valCondicion = this.visit(ctx.valor_condicion());
         let derFinal;
 
-        if(estCondicion.comparacion === null)
+        if(estCondicion === null)
         {
             derFinal = valCondicion.der;
         }
         else
         {
-            derFinal = valCondicion.der + estCondicion.comparacion;
+            derFinal = valCondicion.der + estCondicion;
         }
 
         const propiedad = `${valCondicion.izq}: ${derFinal}`;
@@ -96,10 +96,12 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
     }
     visitValor_condicion(ctx)
     {
+        console.log("entré");
+    
         let izq;
         let der;
         
-        if(ctx.val.type === CondicionalParser.ENTERO)
+        if(ctx.ENTERO())
         {
             izq = "valor";
             der = Number(ctx.ENTERO().getText());
@@ -108,7 +110,7 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
         {
             izq = "encendido";
 
-            if(ctx.val.type === CondicionalParser.ENC)
+            if(ctx.estado().getText() === "encendido")
             {
                 der = "true";
             }

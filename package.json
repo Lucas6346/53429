@@ -1,24 +1,14 @@
 {
-  "name": "proyecto-analizador",
+  "name": "analizador-v2",
   "version": "1.0.0",
-  "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "java -jar antlr-4.13.2-complete.jar -Dlanguage=JavaScript -visitor -no-listener Condicional.g4",
+    "start": "node index.js",
+    "dev": "npm run build && npm start"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
   "dependencies": {
-    "antlr4": "^4.13.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lucas6346/53429.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Lucas6346/53429/issues"
-  },
-  "homepage": "https://github.com/Lucas6346/53429#readme"
+    "antlr4": "^4.13.1"
+  }
 }

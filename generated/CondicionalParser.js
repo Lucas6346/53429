@@ -202,14 +202,12 @@ export default class CondicionalParser extends antlr4.Parser {
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case 8:
-	            localctx = new EstCondicionIsContext(this, localctx);
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 46;
 	            localctx.val = this.match(CondicionalParser.ES);
 	            break;
 	        case 9:
 	        case 10:
-	            localctx = new EstCondicionValueContext(this, localctx);
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 47;
 	            localctx.val = this._input.LT(1);
@@ -250,16 +248,14 @@ export default class CondicionalParser extends antlr4.Parser {
 	        switch(this._input.LA(1)) {
 	        case 11:
 	        case 12:
-	            localctx = new ValCondicionEstadoContext(this, localctx);
 	            this.enterOuterAlt(localctx, 1);
 	            this.state = 50;
-	            localctx.val = this.estado();
+	            this.estado();
 	            break;
 	        case 14:
-	            localctx = new ValCondicionIntContext(this, localctx);
 	            this.enterOuterAlt(localctx, 2);
 	            this.state = 51;
-	            localctx.val = this.match(CondicionalParser.ENTERO);
+	            this.match(CondicionalParser.ENTERO);
 	            break;
 	        default:
 	            throw new antlr4.error.NoViableAltException(this);
@@ -727,61 +723,12 @@ class Estado_condicionContext extends antlr4.ParserRuleContext {
         super(parent, invokingState);
         this.parser = parser;
         this.ruleIndex = CondicionalParser.RULE_estado_condicion;
-    }
-
-
-	 
-		copyFrom(ctx) {
-			super.copyFrom(ctx);
-		}
-
-}
-
-
-class EstCondicionIsContext extends Estado_condicionContext {
-
-    constructor(parser, ctx) {
-        super(parser);
-        this.val = null;;
-        super.copyFrom(ctx);
+        this.val = null;
     }
 
 	ES() {
 	    return this.getToken(CondicionalParser.ES, 0);
 	};
-
-	enterRule(listener) {
-	    if(listener instanceof CondicionalListener ) {
-	        listener.enterEstCondicionIs(this);
-		}
-	}
-
-	exitRule(listener) {
-	    if(listener instanceof CondicionalListener ) {
-	        listener.exitEstCondicionIs(this);
-		}
-	}
-
-	accept(visitor) {
-	    if ( visitor instanceof CondicionalVisitor ) {
-	        return visitor.visitEstCondicionIs(this);
-	    } else {
-	        return visitor.visitChildren(this);
-	    }
-	}
-
-
-}
-
-CondicionalParser.EstCondicionIsContext = EstCondicionIsContext;
-
-class EstCondicionValueContext extends Estado_condicionContext {
-
-    constructor(parser, ctx) {
-        super(parser);
-        this.val = null;;
-        super.copyFrom(ctx);
-    }
 
 	MAY() {
 	    return this.getToken(CondicionalParser.MAY, 0);
@@ -793,19 +740,19 @@ class EstCondicionValueContext extends Estado_condicionContext {
 
 	enterRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.enterEstCondicionValue(this);
+	        listener.enterEstado_condicion(this);
 		}
 	}
 
 	exitRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.exitEstCondicionValue(this);
+	        listener.exitEstado_condicion(this);
 		}
 	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
-	        return visitor.visitEstCondicionValue(this);
+	        return visitor.visitEstado_condicion(this);
 	    } else {
 	        return visitor.visitChildren(this);
 	    }
@@ -814,7 +761,7 @@ class EstCondicionValueContext extends Estado_condicionContext {
 
 }
 
-CondicionalParser.EstCondicionValueContext = EstCondicionValueContext;
+
 
 class Valor_condicionContext extends antlr4.ParserRuleContext {
 
@@ -830,22 +777,9 @@ class Valor_condicionContext extends antlr4.ParserRuleContext {
         this.ruleIndex = CondicionalParser.RULE_valor_condicion;
     }
 
-
-	 
-		copyFrom(ctx) {
-			super.copyFrom(ctx);
-		}
-
-}
-
-
-class ValCondicionIntContext extends Valor_condicionContext {
-
-    constructor(parser, ctx) {
-        super(parser);
-        this.val = null;;
-        super.copyFrom(ctx);
-    }
+	estado() {
+	    return this.getTypedRuleContext(EstadoContext,0);
+	};
 
 	ENTERO() {
 	    return this.getToken(CondicionalParser.ENTERO, 0);
@@ -853,19 +787,19 @@ class ValCondicionIntContext extends Valor_condicionContext {
 
 	enterRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.enterValCondicionInt(this);
+	        listener.enterValor_condicion(this);
 		}
 	}
 
 	exitRule(listener) {
 	    if(listener instanceof CondicionalListener ) {
-	        listener.exitValCondicionInt(this);
+	        listener.exitValor_condicion(this);
 		}
 	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
-	        return visitor.visitValCondicionInt(this);
+	        return visitor.visitValor_condicion(this);
 	    } else {
 	        return visitor.visitChildren(this);
 	    }
@@ -874,44 +808,7 @@ class ValCondicionIntContext extends Valor_condicionContext {
 
 }
 
-CondicionalParser.ValCondicionIntContext = ValCondicionIntContext;
 
-class ValCondicionEstadoContext extends Valor_condicionContext {
-
-    constructor(parser, ctx) {
-        super(parser);
-        this.val = null;;
-        super.copyFrom(ctx);
-    }
-
-	estado() {
-	    return this.getTypedRuleContext(EstadoContext,0);
-	};
-
-	enterRule(listener) {
-	    if(listener instanceof CondicionalListener ) {
-	        listener.enterValCondicionEstado(this);
-		}
-	}
-
-	exitRule(listener) {
-	    if(listener instanceof CondicionalListener ) {
-	        listener.exitValCondicionEstado(this);
-		}
-	}
-
-	accept(visitor) {
-	    if ( visitor instanceof CondicionalVisitor ) {
-	        return visitor.visitValCondicionEstado(this);
-	    } else {
-	        return visitor.visitChildren(this);
-	    }
-	}
-
-
-}
-
-CondicionalParser.ValCondicionEstadoContext = ValCondicionEstadoContext;
 
 class EstadoContext extends antlr4.ParserRuleContext {
 

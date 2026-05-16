@@ -1,15 +1,15 @@
 {
     "version": "0.2.0",
     "configurations": [
-    {
-        "name": "Debug Condicional.g4",
-        "type": "antlr-debug",
-        "request": "launch",
-        "input": "${workspaceFolder}/input.txt",
-        "grammar": "${workspaceFolder}/Condicional.g4",
-        "startRule": "programa",
-        "printParseTree": true,
-        "visualParseTree": true
-    }
+        {
+            "name": "analizador v2.g4",
+            "type": "antlr-debug",
+            "request": "launch",
+            "input": "input.txt",
+            "grammar": "Condicional.g4",
+            "startRule": "programa",
+            "printParseTree": true,
+            "visualParseTree": true
+        }
     ]
 }

@@ -17,14 +17,13 @@ estado_condicion
     ;
 
 valor_condicion
-    : val = estado      
-    | val = ENTERO      
+    : estado      
+    | ENTERO      
     ;
-
 estado
     : ENC
     | APA
-    ;
+    ;   
 
 accion_simple
     : activar           #activate
