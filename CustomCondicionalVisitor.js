@@ -2,6 +2,10 @@ import { Parser } from "antlr4";
 import CondicionalVisitor from "./generated/CondicionalVisitor.js";
 import CondicionalParser from "./generated/CondicionalParser.js";
 
+const codEqual = 0;
+const codGreater = 1;
+const codLesser = -1;
+
 export class CustomCondicionalVisitor extends CondicionalVisitor 
 {
     constructor() 
@@ -15,35 +19,27 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
         const objCondicion = this.visit(ctx.condicion());
         const objAccion = this.visit(ctx.accion());
         let valorFuncion = objCondicion.propiedadIzq;
-
-        let op = ".";
-        let negate = "";
+        let op;
         
         if(objCondicion.valCondicion.izq === "valor")
-        {
-            switch(objCondicion.estCondicion)
-            {
-                case null:
-                    op = " === ";
-                    break;
-                case 1:
-                    op = " > ";
-                    break;
-                case -1:
-                    op = " < ";
-                    break;
-            }
-
-            if(objCondicion.valCondicion.der === "true")
-                negate = "!";
-
             valorFuncion = "valor";
+
+        switch(objCondicion.estCondicion)
+        {
+            case codEqual:
+                op = "===";
+                break;
+            case codGreater:
+                op = ">";
+                break;
+            case codLesser:
+                op = "<";
+                break;
         }
 
         const line1 = `const ${objCondicion.nomDispositivo} = { ${objCondicion.propiedad}, ${objAccion.funcionNom}: function() { this.${objCondicion.propiedadIzq} = ${objAccion.funcionSet} } };`;
-        const line2 = `if (${objCondicion.nomDispositivo}${op}${negate}${objCondicion.valCondicion.izq}) ${objCondicion.nomDispositivo}.${objAccion.funcionNom}();`;
+        const line2 = `if (${objCondicion.nomDispositivo}.${objCondicion.propiedadIzq} ${op} ${objCondicion.valCondicion.der}) ${objCondicion.nomDispositivo}.${objAccion.funcionNom}();`;
 
-        console.log("\nTraducción a JavaScript:")
         console.log(line1 + "\n" + line2);
         console.log("");
     }
@@ -55,7 +51,7 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
         const valCondicion = this.visit(ctx.valor_condicion());
         let derFinal;
 
-        if(estCondicion === null)
+        if(estCondicion === codEqual)
         {
             derFinal = valCondicion.der;
         }
@@ -81,23 +77,21 @@ export class CustomCondicionalVisitor extends CondicionalVisitor
 
         if(ctx.val.type === CondicionalParser.ES) 
         {
-            comparacion = null;
+            comparacion = codEqual;
         }
         else if(ctx.val.type === CondicionalParser.MAY)
         {
-            comparacion = 1;
+            comparacion = codGreater;
         }
         else
         {
-            comparacion = -1;
+            comparacion = codLesser;
         }
 
         return comparacion;
     }
     visitValor_condicion(ctx)
     {
-        console.log("entré");
-    
         let izq;
         let der;
         

@@ -53,7 +53,7 @@ async function main()
     console.log(arbol);
 
     //Interpretación a JS
-    console.log("Traducción a JS")
+    console.log("\nTraducción a JavaScript:")
     const visitor = new CustomCondicionalVisitor();
     visitor.visit(tree);
 }
@@ -101,3 +101,9 @@ function MostrarTabla(lexer)
 }
 
 main();
+
+//cuando <dispositivo> <condicion> <estado/numero> entonces <accion> <dispositivo>;
+//ambos dispositivos deben ser iguales
+//cuando se evalua un numero, debe usarse la funcion ajustar para que el codigo tenga sentido
+//cuando se evalua un estado, debe usarse la funcion activar o desactivar para que el codigo tenga sentido
+//cuando la condicion es distinta a "es" (osea mayor que/menor que), se debe evaluar un numero, no un estado, para que el codigo tenga sentido
