@@ -1,0 +1,1 @@
+cu@ando precio menor que 11 entonces ajustar pr$ecio a 28.5;

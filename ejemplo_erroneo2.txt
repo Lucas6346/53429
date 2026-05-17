@@ -1,0 +1,1 @@
+cuando computadora es apagado entonces encender computadora;
