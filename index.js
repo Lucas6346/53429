@@ -15,7 +15,9 @@ async function main()
     let input;
 
     input = fs.readFileSync('input.txt', 'utf8'); //lee input
-
+    console.log("\n==== Cadena ingresada ====\n" + input);
+    console.log("---------------------------");
+    
     //Obtener tokens y arbol
     let inputStream = CharStreams.fromString(input);
     let lexer = new CondicionalLexer(inputStream);
@@ -35,7 +37,7 @@ async function main()
     if (errorListener.errors.length > 0) 
     {
         MostrarErrores(errorListener);
-        console.log("\nEntrada inválida.");
+        console.log("Entrada inválida.");
         console.log("Programa terminado.");
         process.exit(1);
     }
@@ -48,19 +50,19 @@ async function main()
     MostrarTabla(lexer);
 
     //Arbol de analisis sintactico
-    console.log("\nÁrbol sintáctico:");
+    console.log("\n==== Árbol sintáctico ====");
     let arbol = tree.toStringTree(parser.ruleNames, parser);
     console.log(arbol);
 
     //Interpretación a JS
-    console.log("\nTraducción a JavaScript:")
+    console.log("\n==== Traducción a JavaScript ====")
     const visitor = new CustomCondicionalVisitor();
     visitor.visit(tree);
 }
 
 function MostrarErrores(errorListener) 
 {
-    console.log(`\n==== La entrada contiene ${errorListener.errors.length} errores: ====\n`);
+    console.log(`\n==== La entrada contiene ${errorListener.errors.length} errores ====\n`);
 
     errorListener.errors.forEach((error, i) => 
     {
@@ -76,15 +78,17 @@ function MostrarErrores(errorListener)
 function MostrarTabla(lexer) 
 {
     //Verificar si el lexer está generando tokens 
-    console.log("\nVerificando tokens generados por lexer...");
+    console.log("Verificando tokens generados por lexer...");
     const tokens = lexer.getAllTokens();
     if (tokens.length === 0) {
-        console.error("\nNo se generaron tokens. Verifique la entrada y la gramática.");
+        console.log("No se generaron tokens. Verifique la entrada.");
+        console.log("Programa terminado.");
+        process.exit(1);
         return;
     }
 
     //Mostrar la tabla de tokens y lexemas
-    console.log("\nTabla de Tokens y Lexemas:");
+    console.log("\n==== Tabla de Tokens y Lexemas ====");
     console.log("--------------------------------------------------------------");
     console.log("| Lexema                     | Token                         |");
     console.log("--------------------------------------------------------------");
