@@ -7,9 +7,9 @@ Corresponde a la siguiente gramática EBNF:
 
 El analizador realiza las siguientes tareas:
 1. **Análisis léxico y sintáctico:** Realiza análisis léxico y sintáctico sobre el código fuente e informa si la entrada es correcta o contiene errores. En caso de errores, indica la línea en la que ocurren y la causa del problema.
-2. **Tabla de lexemas-tokens:** Genera una tabla que contiene los lexemas y sus respectivos tolens reconocidos durante el análisis léxico.
+2. **Tabla de lexemas-tokens:** Genera una tabla que contiene los lexemas y sus respectivos tokens reconocidos durante el análisis léxico.
 3. **Árbol de análisis sintáctico:** Construye y muestra el árbol de análisis sintáctico concreto de la entrada en formato de texto.
-4. **Interprétación:** Traduce el código fuente a JavaScript y lo ejecuta como un intérprete básico.
+4. **Interpretación:** Traduce el código fuente a JavaScript y lo ejecuta como un intérprete básico.
 ## Instrucciones de Uso
 1. Clonar el repositorio con el siguiente comando en la terminal o usando otro método:
 ```
@@ -65,13 +65,13 @@ Fui a una clase de consulta de la Profesora Naveda para preguntarle sobre posibl
 
 La estructura de las entradas que corresponden a la gramática se puede ver como la siguiente: 
 ```
-"cuando" <dispositivo> <condicion> <estado/numero> "entonces" <accion> <dispositivo>;
+"cuando" <dispositivo> <condicion> <estado/número> "entonces" <accion> <dispositivo>;
 ```
 Sabiendo esto, tenga en cuenta lo siguiente:
 
 1. Ambos `<dispositivo>` deben ser iguales. Por ejemplo, evite entradas como: `cuando router es encendido entonces desactivar ventilador;`
-2. Cuando se evalúa un número, úsese la funcion ajustar. Por ejemplo: `cuando temperatura mayor que 40 entonces ajustar temperatura a 36;`
-3. Cuando se evalúa un estado, úsese la funcion activar o desactivar. Por ejemplo: `cuando lampara es apagado entonces activar lampara;`
-4. Cuando la condición es distinta a "es" (osea mayor que/menor que), evalúese un numero, no un estado. Por ejemplo, evite entradas como: `cuando precio menor que encendido entonces desactivar precio;`
+2. Cuando se evalúa un número, úsese la función ajustar. Por ejemplo: `cuando temperatura mayor que 40 entonces ajustar temperatura a 36;`
+3. Cuando se evalúa un estado, úsese la función activar o desactivar. Por ejemplo: `cuando lampara es apagado entonces activar lampara;`
+4. Cuando la condición es distinta a "es" (es decir, mayor que/menor que), evalúese un número, no un estado. Por ejemplo, evite entradas como: `cuando precio menor que encendido entonces desactivar precio;`
 
 Todas estas cadenas de ejemplo mostradas son válidas para el analizador, pero a la hora de traducirlas a JavaScript el resultado de algunas es confuso.
