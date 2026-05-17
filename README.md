@@ -29,7 +29,7 @@ La gramática reconoce varias cadenas a la vez, pero si una de ellas es errónea
 ```
 node index.js
 ```
-## Ejemplo
+## Ejemplo de Funcionamiento
 Usando como ejemplo la cadena mostrada en la imagen anterior, una vez ejecutado el programa, la terminal muestra lo siguiente:
 ```
 ==== Cadena ingresada ====
