@@ -65,7 +65,6 @@ function MostrarErrores(errorListener)
     errorListener.errors.forEach((error, i) => 
     {
         console.log("Error nro: " + (i+1));
-        console.log(`Simbolo causante: '${error.token}'`);
         console.log(`Etapa: ${error.etapa}`);
         console.log(`Linea: ${error.line} | Columna: ${error.column}`);
         console.log(`Mensaje de error: ${error.msg}`);

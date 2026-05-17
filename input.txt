@@ -2,4 +2,4 @@ cuando disp es encendido entonces desactivar disp;
 cuando disp es apagado entonces activar disp;
 cuando disp es 20 entonces ajustar disp a 17;
 cuando disp mayor que 11 entonces ajustar disp a 27;
-cuando disp menor que 11 entonces ajustar disp a 28;
+cuando disp menor que 11 ent%onces ajustar disp a 28;
