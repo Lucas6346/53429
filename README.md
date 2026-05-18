@@ -17,9 +17,9 @@ git clone https://github.com/Lucas6346/53429.git
 ```
 2. Ingresar a la carpeta del proyecto:
 ```
-cd 53429
+cd 53429/ProyectoAnalizador
 ```
-3. En el proyecto hay 4 archivos de texto:
+3. En el proyecto hay 4 archivos de texto ubicados en la raíz del repositorio:
 
 <img width="191" height="110" alt="image" src="https://github.com/user-attachments/assets/9bffe298-adbe-4c46-a42f-6092007a0d3f" />
 
@@ -94,9 +94,10 @@ node_modules
 ```
 Una vez eliminadas las carpetas, ejecute en la terminal:
 ```
+cd ProyectoAnalizador
 npm install
 npm run build
 ```
 **(Opcional)** Luego, en el archivo de gramática `Condicional.g4`, presione F5.
 
-Una vez realizados todos estos pasos, las carpetas deberían haberse regenerado y el proyecto ahora debe funcionar correctamente y poder ejecutarse usando `npm start` o `node index.js`.
+Una vez realizados todos estos pasos, las carpetas deberían haberse regenerado y el proyecto ahora debe funcionar correctamente y poder ejecutarse usando `npm start` o `node index.js`. Es posible que al haberlas regenerados, la carpeta `.antlr` se haya generado en la raíz del repositorio debido a como lo hace la extensión de ANTLR.

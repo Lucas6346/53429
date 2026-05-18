@@ -4,7 +4,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "java -jar antlr-4.13.2-complete.jar -Dlanguage=JavaScript -visitor -listener -o generated Condicional.g4",
+    "build": "java -jar antlr-4.13.2-complete.jar -Dlanguage=JavaScript -visitor -listener -o generated ../Condicional.g4",
     "start": "node index.js",
     "dev": "npm run build && npm start"
   },
