@@ -9,7 +9,7 @@ El analizador realiza las siguientes tareas:
 1. **Análisis léxico y sintáctico:** Realiza análisis léxico y sintáctico sobre el código fuente e informa si la entrada es correcta o contiene errores. En caso de errores, indica la línea en la que ocurren y la causa del problema.
 2. **Tabla de lexemas-tokens:** Genera una tabla que contiene los lexemas y sus respectivos tokens reconocidos durante el análisis léxico.
 3. **Árbol de análisis sintáctico:** Construye y muestra el árbol de análisis sintáctico concreto de la entrada en formato de texto.
-4. **Interpretación:** Traduce el código fuente a JavaScript y lo ejecuta como un intérprete básico.
+4. **Interpretación:** Traduce el código fuente a JavaScript.
 ## Instrucciones de Uso
 1. Clonar el repositorio:
 ```
@@ -23,7 +23,7 @@ cd 53429
 
 <img width="191" height="110" alt="image" src="https://github.com/user-attachments/assets/9bffe298-adbe-4c46-a42f-6092007a0d3f" />
 
-Cada archivo contiene una cadena de entrada para copiar en `input.txt`. En total hay 2 cadenas válidas y 2 cadenas inválidas **(2 para cada caso)**. Para introducir una de las cadenas de entrada de los ejemplos, copiar el texto del archivo txt de ejemplo y pegarlo en `input.txt`, luego guarde con `ctrl+S`. También se puede escribir una cadena cualquiera a mano. 
+Cada archivo contiene una cadena de entrada para copiar en `input.txt`. En total hay 2 cadenas válidas y 2 cadenas inválidas **(2 para cada caso)**. Para utilizar una cadena de entrada de ejemplo, copie el texto de uno de los archivos `.txt`, péguelo en `input.txt` y guarde los cambios con `Ctrl + S`. También se puede escribir una cadena cualquiera a mano. 
 
 <img width="600" height="114" alt="image" src="https://github.com/user-attachments/assets/049ea184-b21e-4e7e-8dd3-ecf8859637cf" />
 
@@ -82,7 +82,7 @@ Sabiendo esto, tenga en cuenta lo siguiente:
 Todas estas cadenas de ejemplo mostradas son válidas para el analizador, pero a la hora de traducirlas a JavaScript el resultado de algunas es confuso.
 ## En caso de que no funcione
 Si por alguna razón el proyecto no ejecuta y tira error, verificar lo siguiente:
-1. Tener instalado Java con version compatible
+1. Tener instalado Java con versión compatible
 2. Tener instalado Node.js
 3. Tener instalado npm (que se instala con node.js normalmente)
 
@@ -99,4 +99,4 @@ npm run build
 ```
 **(Opcional)** Luego, en el archivo de gramática `Condicional.g4`, presione F5.
 
-Una vez realizados todos estos pasos, las carpetas deberían haberse regenerado y el proyecto ahora debe funcionar correctamente.
+Una vez realizados todos estos pasos, las carpetas deberían haberse regenerado y el proyecto ahora debe funcionar correctamente y poder ejecutarse usando `npm start` o `node index.js`.
