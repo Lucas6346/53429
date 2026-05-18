@@ -103,4 +103,4 @@ npm run build
 ```
 **(Opcional)** Luego, en el archivo de gramática `Condicional.g4`, presione F5.
 
-Una vez realizados todos estos pasos, las carpetas deberían haberse regenerado y el proyecto ahora debe funcionar correctamente y poder ejecutarse usando `npm start` o `node index.js`. Es posible que al haberlas regenerados, la carpeta `.antlr` se haya generado en la raíz del repositorio debido a cómo lo hace la extensión de ANTLR.
+Una vez realizados todos estos pasos, las carpetas deberían haberse regenerado y el proyecto ahora debe funcionar correctamente y poder ejecutarse usando `npm start` o `node index.js`. Es posible que al haberlas regenerado, la carpeta `.antlr` se haya generado en la raíz del repositorio debido a cómo lo hace la extensión de ANTLR.
