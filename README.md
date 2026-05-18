@@ -11,11 +11,15 @@ El analizador realiza las siguientes tareas:
 3. **Árbol de análisis sintáctico:** Construye y muestra el árbol de análisis sintáctico concreto de la entrada en formato de texto.
 4. **Interpretación:** Traduce el código fuente a JavaScript y lo ejecuta como un intérprete básico.
 ## Instrucciones de Uso
-1. Clonar el repositorio con el siguiente comando en la terminal o usando otro método:
+1. Clonar el repositorio:
 ```
 git clone https://github.com/Lucas6346/53429.git
 ```
-2. En el proyecto hay 4 archivos de texto:
+2. Ingresar a la carpeta del proyecto:
+```
+cd 53429
+```
+3. En el proyecto hay 4 archivos de texto:
 
 <img width="191" height="110" alt="image" src="https://github.com/user-attachments/assets/9bffe298-adbe-4c46-a42f-6092007a0d3f" />
 
@@ -25,11 +29,11 @@ Cada archivo contiene una cadena de entrada para copiar en `input.txt`. En total
 
 La gramática reconoce varias cadenas a la vez, pero si una de ellas es errónea, no va a mostrar tabla, árbol ni interpretación, muestra la lista de errores.
 
-3. Para ejecutar el analizador, en la terminal use:
+4. Para ejecutar el analizador, en la terminal use:
 ```
-node index.js
+npm start
 ```
-(También funciona usar `npm start`)
+(También funciona usar `node index.js`)
 ## Ejemplo de Funcionamiento
 Usando como ejemplo la cadena mostrada en la imagen anterior, una vez ejecutado el programa, la terminal muestra lo siguiente:
 ```
@@ -93,6 +97,6 @@ Una vez eliminadas las carpetas, ejecute en la terminal:
 npm install
 npm run build
 ```
-Luego, en el archivo de gramática `Condicional.g4`, presione F5.
+**(Opcional)** Luego, en el archivo de gramática `Condicional.g4`, presione F5.
 
 Una vez realizados todos estos pasos, las carpetas deberían haberse regenerado y el proyecto ahora debe funcionar correctamente.
