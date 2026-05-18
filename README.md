@@ -29,6 +29,7 @@ La gramática reconoce varias cadenas a la vez, pero si una de ellas es errónea
 ```
 node index.js
 ```
+(También funciona usar `npm start`)
 ## Ejemplo de Funcionamiento
 Usando como ejemplo la cadena mostrada en la imagen anterior, una vez ejecutado el programa, la terminal muestra lo siguiente:
 ```
@@ -75,3 +76,23 @@ Sabiendo esto, tenga en cuenta lo siguiente:
 4. Cuando la condición es distinta a "es" (es decir, mayor que/menor que), evalúese un número, no un estado. Por ejemplo, evite entradas como: `cuando precio menor que encendido entonces desactivar precio;`
 
 Todas estas cadenas de ejemplo mostradas son válidas para el analizador, pero a la hora de traducirlas a JavaScript el resultado de algunas es confuso.
+## En caso de que no funcione
+Si por alguna razón el proyecto no ejecuta y tira error, verificar lo siguiente:
+1. Tener instalado Java
+2. Tener instalado Node.js
+3. Tener instalado npm (que se instala con node.js normalmente)
+
+Luego eliminar las carpetas:
+```
+.antlr
+generated
+node_modules
+```
+Una vez eliminadas las carpetas, ejecute en la terminal:
+```
+npm install
+npm run build
+```
+Luego, en el archivo de gramática `Condicional.g4`, presione F5.
+
+Una vez realizados todos estos pasos, las carpetas deberían haberse regenerado y el proyecto ahora debe funcionar correctamente.
