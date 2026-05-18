@@ -78,7 +78,7 @@ Sabiendo esto, tenga en cuenta lo siguiente:
 Todas estas cadenas de ejemplo mostradas son válidas para el analizador, pero a la hora de traducirlas a JavaScript el resultado de algunas es confuso.
 ## En caso de que no funcione
 Si por alguna razón el proyecto no ejecuta y tira error, verificar lo siguiente:
-1. Tener instalado Java
+1. Tener instalado Java con version compatible
 2. Tener instalado Node.js
 3. Tener instalado npm (que se instala con node.js normalmente)
 
