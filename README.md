@@ -86,7 +86,7 @@ Si por alguna razón el proyecto no ejecuta y tira error, verificar lo siguiente
 2. Tener instalado Node.js
 3. Tener instalado npm (que se instala con node.js normalmente)
 
-Luego eliminar las carpetas:
+Luego, dentro de `ProyectoAnalizador`, eliminar las carpetas:
 ```
 generated
 node_modules
