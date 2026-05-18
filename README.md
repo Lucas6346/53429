@@ -23,7 +23,7 @@ cd 53429/ProyectoAnalizador
 
 <img width="191" height="110" alt="image" src="https://github.com/user-attachments/assets/9bffe298-adbe-4c46-a42f-6092007a0d3f" />
 
-Cada archivo contiene una cadena de entrada para copiar en `input.txt`. En total hay 2 cadenas válidas y 2 cadenas inválidas **(2 para cada caso)**. Para utilizar una cadena de entrada de ejemplo, copie el texto de uno de los archivos `.txt`, péguelo en `input.txt` y guarde los cambios con `Ctrl + S`. También se puede escribir una cadena cualquiera a mano. 
+Cada archivo contiene una cadena de entrada para copiar en `input.txt`. En total hay 2 cadenas válidas y 2 cadenas inválidas **(2 para cada caso)**. Para utilizar una cadena de entrada de ejemplo, copie el texto de uno de los archivos `.txt`, péguelo en `input.txt` y guarde los cambios con `Ctrl + S`. También se puede escribir una cadena cualquiera a mano. Además, `input.txt` ya incluye un ejemplo cargado para probar el analizador directamente.
 
 <img width="600" height="114" alt="image" src="https://github.com/user-attachments/assets/049ea184-b21e-4e7e-8dd3-ecf8859637cf" />
 
