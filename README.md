@@ -11,7 +11,7 @@ El analizador realiza las siguientes tareas:
 3. **Árbol de análisis sintáctico:** Construye y muestra el árbol de análisis sintáctico concreto de la entrada en formato de texto.
 4. **Interpretación:** Traduce el código fuente a JavaScript.
 ## Instrucciones de Uso
-1. Clonar el repositorio:
+1. Clonar el repositorio desde `CMD` o una terminal:
 ```
 git clone https://github.com/Lucas6346/53429.git
 ```
