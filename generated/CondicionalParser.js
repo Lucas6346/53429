@@ -1,6 +1,7 @@
 // Generated from Condicional.g4 by ANTLR 4.13.2
 // jshint ignore: start
 import antlr4 from 'antlr4';
+import CondicionalListener from './CondicionalListener.js';
 import CondicionalVisitor from './CondicionalVisitor.js';
 
 const serializedATN = [4,1,15,73,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
@@ -489,6 +490,18 @@ class ProgramaContext extends antlr4.ParserRuleContext {
 	    }
 	};
 
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterPrograma(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitPrograma(this);
+		}
+	}
+
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
 	        return visitor.visitPrograma(this);
@@ -536,6 +549,18 @@ class ReglaContext extends antlr4.ParserRuleContext {
 	    return this.getToken(CondicionalParser.SEM, 0);
 	};
 
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterRegla(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitRegla(this);
+		}
+	}
+
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
 	        return visitor.visitRegla(this);
@@ -575,6 +600,18 @@ class CondicionContext extends antlr4.ParserRuleContext {
 	    return this.getTypedRuleContext(Valor_condicionContext,0);
 	};
 
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterCondicion(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitCondicion(this);
+		}
+	}
+
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
 	        return visitor.visitCondicion(this);
@@ -606,6 +643,18 @@ class AccionContext extends antlr4.ParserRuleContext {
 	    return this.getTypedRuleContext(Accion_simpleContext,0);
 	};
 
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterAccion(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitAccion(this);
+		}
+	}
+
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
 	        return visitor.visitAccion(this);
@@ -636,6 +685,18 @@ class Nombre_dispositivoContext extends antlr4.ParserRuleContext {
 	ID() {
 	    return this.getToken(CondicionalParser.ID, 0);
 	};
+
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterNombre_dispositivo(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitNombre_dispositivo(this);
+		}
+	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
@@ -677,6 +738,18 @@ class Estado_condicionContext extends antlr4.ParserRuleContext {
 	    return this.getToken(CondicionalParser.MEN, 0);
 	};
 
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterEstado_condicion(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitEstado_condicion(this);
+		}
+	}
+
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
 	        return visitor.visitEstado_condicion(this);
@@ -712,6 +785,18 @@ class Valor_condicionContext extends antlr4.ParserRuleContext {
 	    return this.getToken(CondicionalParser.ENTERO, 0);
 	};
 
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterValor_condicion(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitValor_condicion(this);
+		}
+	}
+
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
 	        return visitor.visitValor_condicion(this);
@@ -746,6 +831,18 @@ class EstadoContext extends antlr4.ParserRuleContext {
 	APA() {
 	    return this.getToken(CondicionalParser.APA, 0);
 	};
+
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterEstado(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitEstado(this);
+		}
+	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
@@ -794,6 +891,18 @@ class AdjustContext extends Accion_simpleContext {
 	    return this.getTypedRuleContext(AjustarContext,0);
 	};
 
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterAdjust(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitAdjust(this);
+		}
+	}
+
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
 	        return visitor.visitAdjust(this);
@@ -818,6 +927,18 @@ class ActivateContext extends Accion_simpleContext {
 	    return this.getTypedRuleContext(ActivarContext,0);
 	};
 
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterActivate(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitActivate(this);
+		}
+	}
+
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
 	        return visitor.visitActivate(this);
@@ -841,6 +962,18 @@ class DeactivateContext extends Accion_simpleContext {
 	desactivar() {
 	    return this.getTypedRuleContext(DesactivarContext,0);
 	};
+
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterDeactivate(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitDeactivate(this);
+		}
+	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
@@ -877,6 +1010,18 @@ class ActivarContext extends antlr4.ParserRuleContext {
 	    return this.getTypedRuleContext(Nombre_dispositivoContext,0);
 	};
 
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterActivar(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitActivar(this);
+		}
+	}
+
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
 	        return visitor.visitActivar(this);
@@ -911,6 +1056,18 @@ class DesactivarContext extends antlr4.ParserRuleContext {
 	nombre_dispositivo() {
 	    return this.getTypedRuleContext(Nombre_dispositivoContext,0);
 	};
+
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterDesactivar(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitDesactivar(this);
+		}
+	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
@@ -954,6 +1111,18 @@ class AjustarContext extends antlr4.ParserRuleContext {
 	ENTERO() {
 	    return this.getToken(CondicionalParser.ENTERO, 0);
 	};
+
+	enterRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.enterAjustar(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof CondicionalListener ) {
+	        listener.exitAjustar(this);
+		}
+	}
 
 	accept(visitor) {
 	    if ( visitor instanceof CondicionalVisitor ) {
