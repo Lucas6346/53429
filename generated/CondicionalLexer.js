@@ -1,4 +1,4 @@
-// Generated from c:/Users/Lucas/Desktop/analizador v2/Condicional.g4 by ANTLR 4.13.2
+// Generated from Condicional.g4 by ANTLR 4.13.2
 // jshint ignore: start
 import antlr4 from 'antlr4';
 
